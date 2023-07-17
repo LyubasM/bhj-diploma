@@ -38,7 +38,7 @@ class TransactionsPage {
         this.removeAccount();
       }
       const targetBtn = e.target.closest('button')
-      if (targetBtn.classList.contains('transaction__remove')) {
+      if (targetBtn && targetBtn.classList.contains('transaction__remove')) {
         this.removeTransaction(e.target.dataset.id);
       }
     })
@@ -138,7 +138,7 @@ class TransactionsPage {
    * */
   getTransactionHTML(item){
     const date = this.formatDate(item.created_at);
-    return `<div class="transaction ${item.type} row">
+    return `<div class="transaction transaction_${item.type} row">
     <div class="col-md-7 transaction__details">
       <div class="transaction__icon">
           <span class="fa fa-money fa-2x"></span>
